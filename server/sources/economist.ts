@@ -2,24 +2,23 @@ import * as cheerio from "cheerio"
 import type { NewsItem } from "@shared/types"
 
 const latest = defineSource(async () => {
-  const baseURL = "https://www.economist.com"
-  const html: any = await myFetch(`${baseURL}/latest`)
-  const $ = cheerio.load(html)
+  const url = "https://news.google.com/rss/search?q=site:economist.com"
+  const html: any = await myFetch(url)
+  const $ = cheerio.load(html, { xmlMode: true })
   const news: NewsItem[] = []
 
-  $("article, [data-testid='card']").each((_, el) => {
-    const a = $(el).find("a").first()
-    const title = a.text().trim()
-    const url = a.attr("href")
-    const desc = $(el).find("p").first().text().trim()
+  $("item").each((_, el) => {
+    const title = $(el).find("title").text()
+    const link = $(el).find("link").text()
+    const pubDate = $(el).find("pubDate").text()
 
-    if (title && url && url.startsWith("/")) {
+    if (title && link) {
       news.push({
-        url: `${baseURL}${url}`,
-        title,
-        id: url,
+        url: link,
+        title: title.replace(" - The Economist", ""),
+        id: link,
         extra: {
-          hover: desc?.substring(0, 200),
+          info: pubDate ? new Date(pubDate).toLocaleDateString() : "",
         },
       })
     }
@@ -29,24 +28,23 @@ const latest = defineSource(async () => {
 })
 
 const finance = defineSource(async () => {
-  const baseURL = "https://www.economist.com"
-  const html: any = await myFetch(`${baseURL}/finance-and-economics`)
-  const $ = cheerio.load(html)
+  const url = "https://news.google.com/rss/search?q=site:economist.com+finance"
+  const html: any = await myFetch(url)
+  const $ = cheerio.load(html, { xmlMode: true })
   const news: NewsItem[] = []
 
-  $("article, [data-testid='card']").each((_, el) => {
-    const a = $(el).find("a").first()
-    const title = a.text().trim()
-    const url = a.attr("href")
-    const desc = $(el).find("p").first().text().trim()
+  $("item").each((_, el) => {
+    const title = $(el).find("title").text()
+    const link = $(el).find("link").text()
+    const pubDate = $(el).find("pubDate").text()
 
-    if (title && url && url.startsWith("/")) {
+    if (title && link) {
       news.push({
-        url: `${baseURL}${url}`,
-        title,
-        id: url,
+        url: link,
+        title: title.replace(" - The Economist", ""),
+        id: link,
         extra: {
-          hover: desc?.substring(0, 200),
+          info: pubDate ? new Date(pubDate).toLocaleDateString() : "",
         },
       })
     }

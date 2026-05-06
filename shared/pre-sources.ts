@@ -88,8 +88,20 @@ export const originSources = {
       "latest": {
         title: "最新文章",
       },
+      "economy": {
+        title: "经济",
+      },
       "finance": {
-        title: "财经",
+        title: "金融",
+      },
+      "companies": {
+        title: "公司",
+      },
+      "international": {
+        title: "国际",
+      },
+      "tech": {
+        title: "科技",
       },
     },
   },
