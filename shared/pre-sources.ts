@@ -132,6 +132,150 @@ export const originSources = {
       },
     },
   },
+  "reuters": {
+    name: "路透社",
+    column: "world",
+    color: "orange",
+    interval: Time.Common,
+    home: "https://www.reuters.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "world": {
+        title: "国际",
+      },
+      "business": {
+        title: "商业",
+      },
+      "technology": {
+        title: "科技",
+      },
+    },
+  },
+  "theatlantic": {
+    name: "大西洋",
+    column: "world",
+    color: "blue",
+    interval: Time.Common,
+    home: "https://www.theatlantic.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "politics": {
+        title: "政治",
+      },
+      "technology": {
+        title: "科技",
+      },
+    },
+  },
+  "technologyreview": {
+    name: "MIT Technology Review",
+    column: "tech",
+    color: "red",
+    interval: Time.Common,
+    home: "https://www.technologyreview.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "ai": {
+        title: "AI",
+      },
+    },
+  },
+  "wired": {
+    name: "Wired",
+    column: "tech",
+    color: "black",
+    interval: Time.Common,
+    home: "https://www.wired.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "science": {
+        title: "科学",
+      },
+      "security": {
+        title: "安全",
+      },
+    },
+  },
+  "foreignaffairs": {
+    name: "Foreign Affairs",
+    column: "world",
+    color: "blue",
+    interval: Time.Slow,
+    home: "https://www.foreignaffairs.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+    },
+  },
+  "foreignpolicy": {
+    name: "Foreign Policy",
+    column: "world",
+    color: "gray",
+    interval: Time.Slow,
+    home: "https://foreignpolicy.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+    },
+  },
+  "thediplomat": {
+    name: "The Diplomat",
+    column: "world",
+    color: "red",
+    interval: Time.Common,
+    home: "https://thediplomat.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+    },
+  },
+  "nikkeiasia": {
+    name: "日经亚洲",
+    column: "finance",
+    color: "blue",
+    interval: Time.Common,
+    home: "https://asia.nikkei.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "business": {
+        title: "商业",
+      },
+      "politics": {
+        title: "政治",
+      },
+    },
+  },
+  "theverge": {
+    name: "The Verge",
+    column: "tech",
+    color: "purple",
+    interval: Time.Common,
+    home: "https://www.theverge.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "tech": {
+        title: "科技",
+      },
+      "ai": {
+        title: "AI",
+      },
+    },
+  },
 
   // 科技
   "github": {
