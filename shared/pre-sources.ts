@@ -57,6 +57,27 @@ export const originSources = {
     interval: Time.Common,
     home: "https://www.ft.com",
   },
+  "wsj": {
+    name: "华尔街日报",
+    column: "finance",
+    color: "blue",
+    interval: Time.Common,
+    home: "https://www.wsj.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "world": {
+        title: "国际",
+      },
+      "business": {
+        title: "商业",
+      },
+      "markets": {
+        title: "市场",
+      },
+    },
+  },
   "caixin": {
     name: "财新网",
     column: "finance",
@@ -69,6 +90,45 @@ export const originSources = {
       },
       "finance": {
         title: "财经",
+      },
+    },
+  },
+  "newyorker": {
+    name: "纽约客",
+    column: "world",
+    color: "red",
+    interval: Time.Common,
+    home: "https://www.newyorker.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "news": {
+        title: "新闻",
+      },
+      "culture": {
+        title: "文化",
+      },
+    },
+  },
+  "washingtonpost": {
+    name: "华盛顿邮报",
+    column: "world",
+    color: "blue",
+    interval: Time.Common,
+    home: "https://www.washingtonpost.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "world": {
+        title: "国际",
+      },
+      "business": {
+        title: "商业",
+      },
+      "technology": {
+        title: "科技",
       },
     },
   },
