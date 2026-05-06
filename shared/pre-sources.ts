@@ -357,6 +357,27 @@ export const originSources = {
     type: "hottest",
     home: "https://www.nowcoder.com",
   },
+  "economist": {
+    name: "经济学人",
+    column: "world",
+    color: "red",
+    interval: Time.Slow,
+    home: "https://www.economist.com",
+  },
+  "nytimes": {
+    name: "纽约时报",
+    column: "world",
+    color: "gray",
+    interval: Time.Common,
+    home: "https://www.nytimes.com",
+  },
+  "ft": {
+    name: "金融时报",
+    column: "finance",
+    color: "pink",
+    interval: Time.Common,
+    home: "https://www.ft.com",
+  },
 } as const satisfies Record<string, OriginSource>
 
 export function genSources() {
