@@ -20,6 +20,14 @@ export const originSources = {
     color: "red",
     interval: Time.Slow,
     home: "https://www.economist.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "finance": {
+        title: "财经",
+      },
+    },
   },
   "nytimes": {
     name: "纽约时报",
@@ -27,6 +35,20 @@ export const originSources = {
     color: "gray",
     interval: Time.Common,
     home: "https://www.nytimes.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "world": {
+        title: "国际",
+      },
+      "business": {
+        title: "商业",
+      },
+      "technology": {
+        title: "科技",
+      },
+    },
   },
   "ft": {
     name: "金融时报",
@@ -41,6 +63,14 @@ export const originSources = {
     color: "red",
     interval: Time.Common,
     home: "https://www.caixin.com",
+    sub: {
+      "latest": {
+        title: "最新文章",
+      },
+      "finance": {
+        title: "财经",
+      },
+    },
   },
 
   // 科技

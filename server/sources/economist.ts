@@ -1,30 +1,62 @@
 import * as cheerio from "cheerio"
 import type { NewsItem } from "@shared/types"
 
-export default defineSource(async () => {
+const latest = defineSource(async () => {
   const baseURL = "https://www.economist.com"
-  const html: any = await myFetch(`${baseURL}/rss`)
-  const $ = cheerio.load(html, { xmlMode: true })
+  const html: any = await myFetch(`${baseURL}/latest`)
+  const $ = cheerio.load(html)
   const news: NewsItem[] = []
 
-  $("item").each((_, el) => {
-    const title = $(el).find("title").text()
-    const url = $(el).find("link").text()
-    const desc = $(el).find("description").text()
-    const pubDate = $(el).find("pubDate").text()
+  $("article, [data-testid='card']").each((_, el) => {
+    const a = $(el).find("a").first()
+    const title = a.text().trim()
+    const url = a.attr("href")
+    const desc = $(el).find("p").first().text().trim()
 
-    if (title && url) {
+    if (title && url && url.startsWith("/")) {
       news.push({
-        url,
+        url: `${baseURL}${url}`,
         title,
         id: url,
         extra: {
-          info: pubDate ? new Date(pubDate).toLocaleDateString() : "",
           hover: desc?.substring(0, 200),
         },
       })
     }
   })
 
-  return news
+  return news.slice(0, 30)
+})
+
+const finance = defineSource(async () => {
+  const baseURL = "https://www.economist.com"
+  const html: any = await myFetch(`${baseURL}/finance-and-economics`)
+  const $ = cheerio.load(html)
+  const news: NewsItem[] = []
+
+  $("article, [data-testid='card']").each((_, el) => {
+    const a = $(el).find("a").first()
+    const title = a.text().trim()
+    const url = a.attr("href")
+    const desc = $(el).find("p").first().text().trim()
+
+    if (title && url && url.startsWith("/")) {
+      news.push({
+        url: `${baseURL}${url}`,
+        title,
+        id: url,
+        extra: {
+          hover: desc?.substring(0, 200),
+        },
+      })
+    }
+  })
+
+  return news.slice(0, 30)
+})
+
+export default defineSource({
+  "economist": latest,
+  "economist-latest": latest,
+  "economist-finance": finance,
 })
